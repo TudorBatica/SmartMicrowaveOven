@@ -1,6 +1,6 @@
 #include "ArgumentsParser.h"
 #include "Microwave.h"
-#include "MicrowaveEndpoint.h"
+#include "src/presentation/MicrowaveEndpoint.h"
 #include "SignalsChecker.h"
 
 using namespace Pistache;

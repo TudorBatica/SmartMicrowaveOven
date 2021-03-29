@@ -1,2 +1,2 @@
-main: main.cpp ArgumentsParser.cpp Microwave.cpp MicrowaveEndpoint.cpp SignalsChecker.cpp
-	g++ main.cpp ArgumentsParser.cpp Microwave.cpp MicrowaveEndpoint.cpp SignalsChecker.cpp -o main -lpistache -lcrypto -lssl -lpthread
+main: main.cpp src/domain/Job.cpp src/domain/Preset.cpp ArgumentsParser.cpp Microwave.cpp src/presentation/MicrowaveEndpoint.cpp SignalsChecker.cpp
+	g++ main.cpp src/domain/Job.cpp src/domain/Preset.cpp ArgumentsParser.cpp Microwave.cpp src/presentation/MicrowaveEndpoint.cpp SignalsChecker.cpp -o main -lpistache -lcrypto -lssl -lpthread

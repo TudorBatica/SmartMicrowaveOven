@@ -3,7 +3,7 @@
 #include <pistache/endpoint.h>
 #include <pistache/router.h>
 
-#include "Microwave.h"
+#include "../../Microwave.h"
 
 class MicrowaveEndpoint
 {
