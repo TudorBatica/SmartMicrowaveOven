@@ -1,9 +1,8 @@
-#include "ArgumentsParser.h"
-#include "Microwave.h"
-#include "SignalsChecker.h"
-#include "src/presentation/MicrowaveEndpoint.h"
-#include "src/infrastructure/PresetRepository.h"
-#include "src/service/PresetService.h"
+#include "startup/ArgumentsParser.h"
+#include "startup/SignalsChecker.h"
+#include "presentation/MicrowaveEndpoint.h"
+#include "infrastructure/PresetRepository.h"
+#include "service/PresetService.h"
 
 using namespace Pistache;
 
