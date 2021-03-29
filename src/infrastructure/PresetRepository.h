@@ -1,6 +1,6 @@
 #include "IPresetRepository.h"
 
-namespace Infrastructure
+namespace infrastructure
 {
     class PresetRepository : public IPresetRepository
     {

@@ -1,7 +1,7 @@
 #include "PresetRepository.h"
 #include <algorithm>
 
-namespace Infrastructure
+namespace infrastructure
 {
     domain::Preset PresetRepository::findByFood(std::string food)
     {

@@ -7,12 +7,12 @@ namespace service
     class PresetService : public IPresetService
     {
     public:
-        PresetService(Infrastructure::IPresetRepository *repository);
+        PresetService(infrastructure::IPresetRepository *repository);
 
         std::vector<domain::Preset> getPresets();
         void addPreset(domain::Preset preset);
 
     private:
-        Infrastructure::IPresetRepository *repository;
+        infrastructure::IPresetRepository *repository;
     };
 }

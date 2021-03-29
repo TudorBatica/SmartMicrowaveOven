@@ -2,7 +2,7 @@
 
 namespace service
 {
-    PresetService::PresetService(Infrastructure::IPresetRepository *repository)
+    PresetService::PresetService(infrastructure::IPresetRepository *repository)
     {
         this->repository = repository;
     }

@@ -2,7 +2,7 @@
 #include <vector>
 #include "../domain/Preset.h"
 
-namespace Infrastructure
+namespace infrastructure
 {
     class IPresetRepository
     {

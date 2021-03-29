@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     Address addr(Ipv4::any(), portAndThreads.first);
 
-    auto *presetRepo = new Infrastructure::PresetRepository();
+    auto *presetRepo = new infrastructure::PresetRepository();
     auto *presetService = new service::PresetService(presetRepo);
     MicrowaveEndpoint server(addr, presetService);
 
