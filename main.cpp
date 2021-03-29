@@ -1,7 +1,8 @@
 #include "ArgumentsParser.h"
 #include "Microwave.h"
-#include "src/presentation/MicrowaveEndpoint.h"
 #include "SignalsChecker.h"
+#include "src/presentation/MicrowaveEndpoint.h"
+#include "src/infrastructure/PresetRepository.h"
 
 using namespace Pistache;
 
@@ -22,11 +23,12 @@ int main(int argc, char *argv[])
     std::cout << "Using " << portAndThreads.second << " threads" << '\n';
 
     // Instance of the class that defines what the server can do.
-    MicrowaveEndpoint stats(addr);
+    auto *presetRepo = new Infrastructure::PresetRepository();
+    MicrowaveEndpoint server(addr, presetRepo);
 
     // Initialize and start the server
-    stats.init(portAndThreads.second);
-    stats.startThreaded();
+    server.init(portAndThreads.second);
+    server.startThreaded();
 
     // Code that waits for the shutdown sinal for the server
     
@@ -41,5 +43,5 @@ int main(int argc, char *argv[])
         std::cerr << "sigwait returns " << status << std::endl;
     }
 
-    stats.stop();
+    server.stop();
 }

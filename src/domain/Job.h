@@ -1,6 +1,7 @@
 #pragma once
 #include "JobType.h"
 #include "PowerLevel.h"
+#include <string>
 
 namespace domain
 {
@@ -18,6 +19,8 @@ namespace domain
 
         PowerLevel getPowerLevel();
         void setPower(PowerLevel power);
+
+        std::string toString();
 
     private:
         JobType jobType;

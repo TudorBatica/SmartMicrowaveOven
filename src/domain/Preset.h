@@ -9,7 +9,7 @@ namespace domain
     {
     public:
         Preset();
-        Preset(int presetId, std::string food, Job job);
+        Preset(std::string food, Job job);
 
         void setJob(Job job);
         Job getJob();
@@ -19,7 +19,10 @@ namespace domain
 
         int getPresetId();
 
+        std::string toString();
+
     private:
+        static int nextId;
         int presetId;
         std::string food;
         Job job;

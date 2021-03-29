@@ -2,13 +2,16 @@
 
 namespace domain
 {
+    int Preset::nextId = 0;
+
     Preset::Preset() {}
 
-    Preset::Preset(int presetId, std::string food, Job job)
+    Preset::Preset(std::string food, Job job)
     {
-        this->presetId = presetId;
+        this->presetId = nextId;
         this->food = food;
         this->job = job;
+        nextId++;
     }
 
     void Preset::setJob(Job job)
@@ -34,5 +37,10 @@ namespace domain
     int Preset::getPresetId()
     {
         return presetId;
+    }
+
+    std::string Preset::toString()
+    {
+        return std::to_string(presetId) + " " + food + " " + job.toString();
     }
 }

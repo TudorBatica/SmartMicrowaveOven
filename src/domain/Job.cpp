@@ -40,4 +40,37 @@ namespace domain
     {
         this->powerLevel = powerLevel;
     }
+
+    std::string Job::toString()
+    {
+        std::string jobTypeStr;
+        switch (jobType)
+        {
+        case WARM:
+            jobTypeStr = "Warm";
+            break;
+
+        default:
+            jobTypeStr = "Defrost";
+            break;
+        }
+
+        std::string powerLevelStr;
+        switch (powerLevel)
+        {
+        case LOW:
+            powerLevelStr = "Low";
+            break;
+
+        case MEDIUM:
+            powerLevelStr = "Medium";
+            break;
+
+        default:
+            jobTypeStr = "High";
+            break;
+        }
+
+        return jobTypeStr + " " + std::to_string(duration) + " " + powerLevelStr;
+    }
 }
