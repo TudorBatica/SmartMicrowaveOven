@@ -1,2 +1,2 @@
-main: main.cpp src/infrastructure/FindAddRepository.cpp src/infrastructure/PresetRepository.cpp src/domain/Job.cpp src/domain/Preset.cpp ArgumentsParser.cpp Microwave.cpp src/presentation/MicrowaveEndpoint.cpp SignalsChecker.cpp
-	g++ main.cpp src/infrastructure/FindAddRepository.cpp src/infrastructure/PresetRepository.cpp src/domain/Job.cpp src/domain/Preset.cpp ArgumentsParser.cpp Microwave.cpp src/presentation/MicrowaveEndpoint.cpp SignalsChecker.cpp -o main -lpistache -lcrypto -lssl -lpthread
+main: main.cpp src/service/PresetService.cpp src/infrastructure/PresetRepository.cpp src/domain/Job.cpp src/domain/Preset.cpp ArgumentsParser.cpp Microwave.cpp src/presentation/MicrowaveEndpoint.cpp SignalsChecker.cpp
+	g++ main.cpp src/service/PresetService.cpp src/infrastructure/PresetRepository.cpp src/domain/Job.cpp src/domain/Preset.cpp ArgumentsParser.cpp Microwave.cpp src/presentation/MicrowaveEndpoint.cpp SignalsChecker.cpp -o main -lpistache -lcrypto -lssl -lpthread
