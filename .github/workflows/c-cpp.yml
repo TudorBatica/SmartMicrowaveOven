@@ -13,6 +13,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: get pistache
+      working-directory: ./
+      run: sudo add-apt-repository ppa:pistache+team/unstable
+    - name: sudo update
+      working-directory: ./
+      run: sudo apt update
+    - name: install pistache
+      working-directory: ./
+      run: sudo apt install libpistache-dev
     - name: make
       working-directory: ./
       run: make
