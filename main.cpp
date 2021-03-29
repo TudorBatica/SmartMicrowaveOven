@@ -3,7 +3,6 @@
 #include "MicrowaveEndpoint.h"
 #include "SignalsChecker.h"
 
-using namespace std;
 using namespace Pistache;
 
 int main(int argc, char *argv[])
@@ -19,8 +18,8 @@ int main(int argc, char *argv[])
 
     Address addr(Ipv4::any(), portAndThreads.first);
 
-    cout << "Cores = " << hardware_concurrency() << endl;
-    cout << "Using " << portAndThreads.second << " threads" << endl;
+    std::cout << "Cores = " << hardware_concurrency() << '\n';
+    std::cout << "Using " << portAndThreads.second << " threads" << '\n';
 
     // Instance of the class that defines what the server can do.
     MicrowaveEndpoint stats(addr);

@@ -36,7 +36,7 @@ void MicrowaveEndpoint::setupRoutes()
 
 void MicrowaveEndpoint::doAuth(const Rest::Request &request, Http::ResponseWriter response)
 {
-    response.send(Http::Code::Ok, "1");
+    response.send(Http::Code::Ok, "\n1\n");
 }
 
 void MicrowaveEndpoint::setSetting(const Rest::Request &request, Http::ResponseWriter response)
