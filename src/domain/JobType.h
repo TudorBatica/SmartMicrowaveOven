@@ -1,3 +1,6 @@
+#pragma once
+#include <string>
+
 namespace domain
 {
     enum JobType
@@ -6,4 +9,5 @@ namespace domain
         DEFROST
     };
 
+    JobType jobTypeFromString(std::string str);
 }

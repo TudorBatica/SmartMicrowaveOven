@@ -23,20 +23,9 @@ int main(int argc, char *argv[])
     auto *presetService = new service::PresetService(presetRepo);
     MicrowaveEndpoint server(addr, presetService);
 
-
     server.init(portAndThreads.second);
     server.startThreaded();
-
     int signal = 0;
     int status = sigwait(&signals, &signal);
-    if (status == 0)
-    {
-        std::cout << "received signal " << signal << std::endl;
-    }
-    else
-    {
-        std::cerr << "sigwait returns " << status << std::endl;
-    }
-
     server.stop();
 }

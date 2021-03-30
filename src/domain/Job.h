@@ -10,6 +10,7 @@ namespace domain
     public:
         Job();
         Job(JobType jobType, int duration, PowerLevel powerLevel);
+        //static Job fromStrParams(std::string jobType, int duration, std::string powerLevel);
 
         JobType getJobType();
         void setJobType(JobType jobType);

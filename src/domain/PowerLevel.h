@@ -1,3 +1,6 @@
+#pragma once
+#include <string>
+
 namespace domain
 {
     enum PowerLevel
@@ -6,4 +9,6 @@ namespace domain
         MEDIUM,
         HIGH
     };
+
+    PowerLevel powerLevelFromString(std::string str);
 }

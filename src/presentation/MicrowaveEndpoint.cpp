@@ -52,18 +52,16 @@ void MicrowaveEndpoint::addPreset(const Rest::Request &request, Http::ResponseWr
 {
     try
     {
-        //TODO: clean shitty object mapping
-        auto food = request.param(":food").as<std::string>();
-        auto duration = request.param(":duration").as<int>();
-        auto job = std::make_shared<domain::Job>(domain::JobType::WARM, duration, domain::PowerLevel::HIGH);
-        auto preset = std::make_shared<domain::Preset>(food, *job);
+        auto job = std::make_shared<domain::Job>(domain::jobTypeFromString(request.param(":jobtype").as<std::string>()),
+                                                 request.param(":duration").as<int>(),
+                                                 domain::powerLevelFromString(request.param(":power").as<std::string>()));
+        auto preset = domain::Preset(request.param(":food").as<std::string>(), *job);
+        presetService->addPreset(preset);
 
-        presetService->addPreset(*preset);
-
-        response.send(Http::Code::Created, preset->toString());
+        response.send(Http::Code::Created, preset.toString());
     }
-    catch (...)
+    catch (const std::exception & ex)
     {
-        response.send(Http::Code::Internal_Server_Error);
+        response.send(Http::Code::Internal_Server_Error, ex.what());
     }
 }
