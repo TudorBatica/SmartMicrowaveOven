@@ -8,7 +8,7 @@ API that simulates a smart microwave oven.
 Building this project requires:
   - C++ compiler (to use the makefile you need g++)
   - [Pistache](http://pistache.io/docs/#installing-pistache) (C++ REST Framework)
-### Building
-Build using `make`.  
-Run with `./main`.  
-App starts listening at `http://localhost:9080`.
+### Build and Run
+  - Build using `make`.  
+  - Run with `./main`.  
+  - App starts listening at `http://localhost:9080`.
