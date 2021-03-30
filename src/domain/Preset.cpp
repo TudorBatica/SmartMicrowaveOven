@@ -43,4 +43,11 @@ namespace domain
     {
         return std::to_string(presetId) + " " + food + " " + job.toString();
     }
+
+    std::string Preset::toJson()
+    {
+        return "{\n\t\"presetId\": " + std::to_string(presetId)
+                + ",\n\t\"food\": \"" + food 
+                + "\",\n\t\"job\": \t" + job.toJson() + "\n}";
+    }
 }

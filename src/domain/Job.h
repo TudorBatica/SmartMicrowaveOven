@@ -22,6 +22,7 @@ namespace domain
         void setPower(PowerLevel power);
 
         std::string toString();
+        std::string toJson();
 
     private:
         JobType jobType;

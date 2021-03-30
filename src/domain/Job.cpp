@@ -43,34 +43,19 @@ namespace domain
 
     std::string Job::toString()
     {
-        std::string jobTypeStr;
-        switch (jobType)
-        {
-        case WARM:
-            jobTypeStr = "Warm";
-            break;
-
-        default:
-            jobTypeStr = "Defrost";
-            break;
-        }
-
-        std::string powerLevelStr;
-        switch (powerLevel)
-        {
-        case LOW:
-            powerLevelStr = "Low";
-            break;
-
-        case MEDIUM:
-            powerLevelStr = "Medium";
-            break;
-
-        default:
-            jobTypeStr = "High";
-            break;
-        }
+        auto jobTypeStr = jobTypeToString(jobType);
+        auto powerLevelStr = powerLevelToString(powerLevel);
 
         return jobTypeStr + " " + std::to_string(duration) + " " + powerLevelStr;
+    }
+
+    std::string Job::toJson()
+    {
+        auto jobTypeStr = jobTypeToString(jobType);
+        auto powerLevelStr = powerLevelToString(powerLevel);
+
+        return "{\n\t\"jobType\": " + jobTypeStr 
+                + ",\n\t\"duration\": " + std::to_string(duration) 
+                + ",\n\t\"powerLevel\": " + powerLevelStr + "\n}";
     }
 }

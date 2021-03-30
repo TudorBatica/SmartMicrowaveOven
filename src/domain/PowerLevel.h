@@ -11,4 +11,5 @@ namespace domain
     };
 
     PowerLevel powerLevelFromString(std::string str);
+    std::string powerLevelToString(PowerLevel powerLevel);
 }

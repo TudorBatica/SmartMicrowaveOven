@@ -39,11 +39,12 @@ void MicrowaveEndpoint::setupRoutes()
 void MicrowaveEndpoint::getPresets(const Rest::Request &request, Http::ResponseWriter response)
 {
     auto presets = presetService->getPresets();
-    std::string stringPresets = "";
+    std::string stringPresets = "[";
     for (auto &preset : presets)
     {
-        stringPresets += preset.toString();
+        stringPresets += preset.toJson() + ",\n";
     }
+    stringPresets += "]";
 
     response.send(Http::Code::Ok, stringPresets);
 }
@@ -58,9 +59,9 @@ void MicrowaveEndpoint::addPreset(const Rest::Request &request, Http::ResponseWr
         auto preset = domain::Preset(request.param(":food").as<std::string>(), *job);
         presetService->addPreset(preset);
 
-        response.send(Http::Code::Created, preset.toString());
+        response.send(Http::Code::Created, preset.toJson());
     }
-    catch (const std::exception & ex)
+    catch (const std::exception &ex)
     {
         response.send(Http::Code::Internal_Server_Error, ex.what());
     }

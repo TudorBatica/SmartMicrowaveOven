@@ -20,6 +20,7 @@ namespace domain
         int getPresetId();
 
         std::string toString();
+        std::string toJson();
 
     private:
         static int nextId;

@@ -21,4 +21,17 @@ namespace domain
 
         return PowerLevel::HIGH;
     }
+
+    std::string powerLevelToString(PowerLevel powerLevel)
+    {
+        switch (powerLevel)
+        {
+        case LOW:
+            return "Low";
+        case MEDIUM:
+            return "Medium";
+        default:
+            return "High";
+        }
+    }
 }

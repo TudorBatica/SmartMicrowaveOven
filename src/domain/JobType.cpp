@@ -17,4 +17,15 @@ namespace domain
 
         return JobType::DEFROST;
     }
+
+    std::string jobTypeToString(JobType jobType)
+    {
+        switch (jobType)
+        {
+        case WARM:
+            return "Warm";
+        default:
+            return "Defrost";
+        }
+    }
 }

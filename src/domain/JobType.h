@@ -10,4 +10,5 @@ namespace domain
     };
 
     JobType jobTypeFromString(std::string str);
+    std::string jobTypeToString(JobType jobType);
 }
