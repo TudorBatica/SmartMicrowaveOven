@@ -2,7 +2,7 @@
 #include "../domain/Preset.h"
 #include <vector>
 
-namespace service
+namespace domain
 {
     class IPresetService
     {

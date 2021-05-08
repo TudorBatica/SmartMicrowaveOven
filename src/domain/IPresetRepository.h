@@ -2,7 +2,7 @@
 #include <vector>
 #include "../domain/Preset.h"
 
-namespace infrastructure
+namespace domain
 {
     class IPresetRepository
     {
@@ -11,4 +11,4 @@ namespace infrastructure
         virtual domain::Preset findByFood(std::string food) = 0;
         virtual void add(domain::Preset) = 0;
     };
-} // namespace Infrastructure
+} 

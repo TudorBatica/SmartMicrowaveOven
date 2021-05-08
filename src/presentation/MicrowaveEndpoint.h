@@ -2,18 +2,18 @@
 
 #include <pistache/endpoint.h>
 #include <pistache/router.h>
-#include "../service/IPresetService.h"
+#include "../domain/IPresetService.h"
 
 class MicrowaveEndpoint
 {
 public:
-    explicit MicrowaveEndpoint(Pistache::Address addr, service::IPresetService *presetService);
+    explicit MicrowaveEndpoint(Pistache::Address addr, domain::IPresetService *presetService);
     void init(size_t thr = 2);
     void startThreaded();
     void stop();
 
 private:
-    service::IPresetService *presetService;
+    domain::IPresetService *presetService;
     std::shared_ptr<Pistache::Http::Endpoint> httpEndpoint;
     Pistache::Rest::Router router;
 

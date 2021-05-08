@@ -1,8 +1,8 @@
-#include "IPresetRepository.h"
+#include "../domain/IPresetRepository.h"
 
 namespace infrastructure
 {
-    class PresetRepository : public IPresetRepository
+    class PresetRepository : public domain::IPresetRepository
     {
     public:
         std::vector<domain::Preset> findAll();

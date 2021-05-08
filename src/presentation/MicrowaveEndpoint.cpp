@@ -5,7 +5,7 @@
 
 using namespace Pistache;
 
-MicrowaveEndpoint::MicrowaveEndpoint(Pistache::Address addr, service::IPresetService *presetService)
+MicrowaveEndpoint::MicrowaveEndpoint(Pistache::Address addr, domain::IPresetService *presetService)
     : httpEndpoint(std::make_shared<Pistache::Http::Endpoint>(addr))
 {
     this->presetService = presetService;
