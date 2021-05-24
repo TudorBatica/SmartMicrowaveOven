@@ -10,7 +10,7 @@ namespace domain
     public:
         Preset();
         Preset(std::string food, Job job);
-
+        Preset(const Preset &preset);
         void setJob(Job job);
         Job getJob();
 

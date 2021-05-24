@@ -10,6 +10,7 @@ namespace service
         PresetService(domain::IPresetRepository *repository);
 
         std::vector<domain::Preset> getPresets();
+        domain::Preset getPresetById(int presetId);
         void addPreset(domain::Preset preset);
 
     private:

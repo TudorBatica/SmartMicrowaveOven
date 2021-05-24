@@ -3,6 +3,9 @@
 #include "presentation/MicrowaveEndpoint.h"
 #include "infrastructure/PresetRepository.h"
 #include "service/PresetService.h"
+#include "infrastructure/CommandRepository.h"
+#include "service/CommandService.h"
+#include <string>
 
 using namespace Pistache;
 
@@ -21,7 +24,9 @@ int main(int argc, char *argv[])
 
     auto *presetRepo = new infrastructure::PresetRepository();
     auto *presetService = new service::PresetService(presetRepo);
-    MicrowaveEndpoint server(addr, presetService);
+    auto *commandRepo = new infrastructure::CommandRepository();
+    auto *commandService = new service::CommandService(commandRepo);
+    MicrowaveEndpoint server(addr, presetService, commandService);
 
     server.init(portAndThreads.second);
     server.startThreaded();
