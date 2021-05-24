@@ -17,6 +17,11 @@ namespace service
         return repository->findById(presetId);
     }
 
+    domain::Preset *PresetService::getPresetByFood(std::string food)
+    {
+        return repository->findByFood(food);
+    }
+
     void PresetService::addPreset(domain::Preset preset)
     {
         repository->add(preset);
