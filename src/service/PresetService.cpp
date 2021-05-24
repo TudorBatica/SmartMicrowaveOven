@@ -12,6 +12,11 @@ namespace service
         return repository->findAll();
     }
 
+    domain::Preset PresetService::getPresetById(int presetId)
+    {
+        return repository->findById(presetId);
+    }
+
     void PresetService::addPreset(domain::Preset preset)
     {
         repository->add(preset);

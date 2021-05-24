@@ -8,6 +8,7 @@ namespace domain
     {
     public:
         virtual std::vector<domain::Preset> getPresets() = 0;
+        virtual domain::Preset getPresetById(int presetId) = 0;
         virtual void addPreset(domain::Preset preset) = 0;
     };
 }

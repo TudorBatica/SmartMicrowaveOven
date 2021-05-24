@@ -5,6 +5,13 @@ namespace domain
     int Preset::nextId = 0;
 
     Preset::Preset() {}
+    
+    Preset::Preset(const Preset &preset)
+    {
+        presetId = preset.presetId;
+        food = preset.food;
+        job = preset.job;
+    }
 
     Preset::Preset(std::string food, Job job)
     {
