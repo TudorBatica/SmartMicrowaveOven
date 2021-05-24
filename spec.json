@@ -1,0 +1,53 @@
+{
+    "device-name": "Microwave App",
+    "device-type": "Microwave",
+    "buffers-count": 1,
+    "input-buffers": {
+        "1": {
+            "token-delimitators": "",
+            "protocol": "HTTP",
+            "prefix": "curl -XPOST 'http://localhost:9080/presets'",
+            "buffer-tokens": [
+                {
+                    "name": "Job type",
+                    "description": "If the food needs to be warmed or defrosted.",
+                    "token-type": "string",
+                    "byte-size": 10,
+                    "regex-rule": "[a-zA-Z]*", // Correct inputs will be: [defrost, warm]
+                    "optional": false
+                },
+                {
+                    "name": "Food",
+                    "description": "What food it is.",
+                    "token-type": "string",
+                    "byte-size": 10,
+                    "regex-rule": "[a-zA-Z]*", // Correct inputs will be: [defrost]
+                    "optional": false
+                },
+                {
+                    "name": "Duration",
+                    "description": "How many seconds should the job last.",
+                    "token-type": "string",
+                    "byte-size": 10,
+                    "regex-rule": "[0-9]+",
+                    "optional": false
+                },
+                {
+                    "name": "Power level",
+                    "description": "Job's power level.",
+                    "token-type": "string",
+                    "byte-size": 10,
+                    "regex-rule": "[a-zA-Z]*", // Correct inputs will be: [low, medium, high]
+                    "optional": false
+                }
+            ]
+        }
+    },
+    "output-buffers": {
+        "1": {
+            "token-delimitators": "",
+            "protocol": "HTTP",
+            "prefix": "curl -XGET 'http://localhost:9080/presets'"
+        }
+    }
+}
