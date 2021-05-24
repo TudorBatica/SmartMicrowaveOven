@@ -48,6 +48,37 @@
             "token-delimitators": "",
             "protocol": "HTTP",
             "prefix": "curl -XGET 'http://localhost:9080/presets'"
+        },
+        "2": {
+            "token-delimitators": "",
+            "protocol": "HTTP",
+            "prefix": "curl -XGET 'http://localhost:9080/generateJob'",
+            "buffer-tokens": [
+                {
+                    "name": "Job type",
+                    "description": "If the food needs to be warmed or defrosted.",
+                    "token-type": "string",
+                    "byte-size": 10,
+                    "regex-rule": "[a-zA-Z]*", // Correct inputs will be: [defrost, warm]
+                    "optional": false
+                },
+                {
+                    "name": "Food",
+                    "description": "What food it is.",
+                    "token-type": "string",
+                    "byte-size": 10,
+                    "regex-rule": "[a-zA-Z]*", // Correct inputs will be: [defrost]
+                    "optional": false
+                },
+                {
+                    "name": "Weight",
+                    "description": "How many grams of food will the job warm/defrost.",
+                    "token-type": "string",
+                    "byte-size": 10,
+                    "regex-rule": "[0-9]+",
+                    "optional": false
+                }
+            ]
         }
     }
 }
