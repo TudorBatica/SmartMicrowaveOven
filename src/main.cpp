@@ -5,6 +5,7 @@
 #include "service/PresetService.h"
 #include "infrastructure/CommandRepository.h"
 #include "service/CommandService.h"
+#include "service/JobGeneratorService.h"
 #include <string>
 
 using namespace Pistache;
@@ -26,7 +27,8 @@ int main(int argc, char *argv[])
     auto *presetService = new service::PresetService(presetRepo);
     auto *commandRepo = new infrastructure::CommandRepository();
     auto *commandService = new service::CommandService(commandRepo);
-    MicrowaveEndpoint server(addr, presetService, commandService);
+    auto *jobGeneratorService = new service::JobGeneratorService();
+    MicrowaveEndpoint server(addr, presetService, commandService, jobGeneratorService);
 
     server.init(portAndThreads.second);
     server.startThreaded();

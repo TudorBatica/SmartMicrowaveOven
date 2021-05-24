@@ -6,11 +6,12 @@
 
 using namespace Pistache;
 
-MicrowaveEndpoint::MicrowaveEndpoint(Pistache::Address addr, domain::IPresetService *presetService, domain::ICommandService *commandService)
+MicrowaveEndpoint::MicrowaveEndpoint(Pistache::Address addr, domain::IPresetService *presetService, domain::ICommandService *commandService, domain::IJobGeneratorService *jobGeneratorService)
     : httpEndpoint(std::make_shared<Pistache::Http::Endpoint>(addr))
 {
     this->presetService = presetService;
     this->commandService = commandService;
+    this->jobGeneratorService = jobGeneratorService;
 }
 
 void MicrowaveEndpoint::init(size_t thr)
@@ -38,6 +39,7 @@ void MicrowaveEndpoint::setupRoutes()
     Rest::Routes::Post(router, "/presets/:jobtype/:food/:duration/:power", Rest::Routes::bind(&MicrowaveEndpoint::addPreset, this));
     Rest::Routes::Get(router, "/commands", Rest::Routes::bind(&MicrowaveEndpoint::getCommands, this));
     Rest::Routes::Post(router, "/commands/:time/:presetId", Rest::Routes::bind(&MicrowaveEndpoint::addCommand, this));
+    Rest::Routes::Get(router, "/generateJob/:food/:jobType/:weight", Rest::Routes::bind(&MicrowaveEndpoint::generateJob, this));
 }
 
 void MicrowaveEndpoint::getPresets(const Rest::Request &request, Http::ResponseWriter response)
@@ -101,4 +103,23 @@ void MicrowaveEndpoint::addCommand(const Rest::Request &request, Http::ResponseW
     {
         response.send(Http::Code::Internal_Server_Error, ex.what());
     }
+}
+
+void MicrowaveEndpoint::generateJob(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response)
+{
+    try
+    {
+        auto jobType = domain::jobTypeFromString(request.param(":jobType").as<std::string>());
+        std::string food = request.param(":food").as<std::string>();
+        int weight = request.param(":weight").as<int>();
+
+        auto job = jobGeneratorService->GenerateJob(jobType, weight, food, presetService);
+
+        response.send(Http::Code::Ok, job.toJson());
+    }
+    catch(const std::exception &ex)
+    {
+        response.send(Http::Code::Internal_Server_Error, ex.what());
+    }
+    
 }

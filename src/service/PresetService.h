@@ -11,6 +11,7 @@ namespace service
 
         std::vector<domain::Preset> getPresets();
         domain::Preset getPresetById(int presetId);
+        domain::Preset *getPresetByFood(std::string food);
         void addPreset(domain::Preset preset);
 
     private:
