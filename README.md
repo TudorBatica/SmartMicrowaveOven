@@ -12,3 +12,16 @@ Building this project requires:
   - Build using `make`.  
   - Run with `./main`.  
   - App starts listening at `http://localhost:9080`.
+
+## Usage
+### Presets
+Presets allow the user to store predefined jobs for different foods.
+#### Retrieve all presets
+`GET /presets`
+#### Add a preset
+`POST /presets/:jobtype/:food/:duration/:power`
+
+### Automatically generated jobs
+The smart microwave can generate a job automatically. To do so, it either uses a preset or it computes the job using as input the food's weight.  
+`GET /generateJob/:food/:jobType/:weight`
+
