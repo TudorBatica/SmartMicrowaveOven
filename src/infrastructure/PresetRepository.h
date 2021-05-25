@@ -5,6 +5,7 @@ namespace infrastructure
     class PresetRepository : public domain::IPresetRepository
     {
     public:
+        PresetRepository(); 
         std::vector<domain::Preset> findAll();
         domain::Preset findById(int presetId);
         domain::Preset *findByFood(std::string food);
