@@ -41,6 +41,29 @@
                     "optional": false
                 }
             ]
+        },
+        "2": {
+            "token-delimitators": "",
+            "protocol": "HTTP",
+            "prefix": "curl -XPOST 'http://localhost:9080/commands'",
+            "buffer-tokens": [
+                {
+                    "name": "Time",
+                    "description": "How many seconds until program starts.",
+                    "token-type": "string",
+                    "byte-size": 10,
+                    "regex-rule": "[0-9]+",
+                    "optional": false
+                },
+                {
+                    "name": "Preset Id",
+                    "description": "Id of the preset that should run",
+                    "token-type": "string",
+                    "byte-size": 10,
+                    "regex-rule": "[0-9]+",
+                    "optional": false
+                }
+            ]
         }
     },
     "output-buffers": {
@@ -50,6 +73,11 @@
             "prefix": "curl -XGET 'http://localhost:9080/presets'"
         },
         "2": {
+            "token-delimitators": "",
+            "protocol": "HTTP",
+            "prefix": "curl -XGET 'http://localhost:9080/commands'"
+        },
+        "3": {
             "token-delimitators": "",
             "protocol": "HTTP",
             "prefix": "curl -XGET 'http://localhost:9080/generateJob'",
