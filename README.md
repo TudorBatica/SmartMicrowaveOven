@@ -21,6 +21,13 @@ Presets allow the user to store predefined jobs for different foods.
 #### Add a preset
 `POST /presets/:jobtype/:food/:duration/:power`
 
+### Commands
+A user can choose an existing preset to run after some amount of time.
+#### Retrieve all commands
+`GET /commands`
+#### Add a command
+`POST /commands/:time/:presetId`
+
 ### Automatically generated jobs
 The smart microwave can generate a job automatically. To do so, it either uses a preset or it computes the job using as input the food's weight.  
 `GET /generateJob/:food/:jobType/:weight`
